@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        body {
+            background-image: url('Fondo.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .Barra {
+            width: 100%;
+            background-color: #6b46c1;
+            padding: 2rem 0;
+            border-bottom: 4px solid #2d1b69;
+            box-shadow: 0 4px 0 #393939;
+        }
+
+        .Barra ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 10rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .Barra ul li a {
+            font-family: "Press Start 2P", system-ui;
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            border-radius: 15px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(-10deg);
+            padding: 1rem 2rem;
+            display: inline-block;
+        }
+
+        .Barra ul li a:hover {
+            background-color: white;
+            color: #6b46c1;
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        /* Estilos del maletín */
+        .briefcase-container {
+            perspective: 1200px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .briefcase {
+            width: 400px;
+            height: 280px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-15px) rotateY(2deg); }
+        }
+
+        .briefcase-bottom, .briefcase-top {
+            position: absolute;
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            border: 4px solid #654321;
+            border-radius: 10px;
+            transform-style: preserve-3d;
+        }
+
+        .briefcase-bottom {
+            bottom: 0;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.4),
+                inset 0 2px 10px rgba(255,255,255,0.2);
+        }
+
+        .briefcase-top {
+            top: 0;
+            transform-origin: bottom center;
+            background: linear-gradient(45deg, #A0522D, #8B4513);
+            transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.3),
+                inset 0 2px 10px rgba(255,255,255,0.2);
+        }
+
+        .briefcase.open .briefcase-top {
+            transform: rotateX(-120deg);
+        }
+
+        .handle {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: linear-gradient(45deg, #654321, #8B4513);
+            border-radius: 10px;
+            border: 2px solid #4a2c17;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .handle::before, .handle::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            background: #654321;
+            top: -5px;
+            border-radius: 3px;
+        }
+
+        .handle::before { left: 10px; }
+        .handle::after { right: 10px; }
+
+        .lock {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 5px;
+            border: 2px solid #B8860B;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .lock::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 15px;
+            border: 3px solid #FFD700;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .corners {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #654321, #4a2c17);
+            border: 2px solid #4a2c17;
+        }
+
+        .corner-tl { top: 10px; left: 10px; border-radius: 0 0 5px 0; }
+        .corner-tr { top: 10px; right: 10px; border-radius: 0 0 0 5px; }
+        .corner-bl { bottom: 10px; left: 10px; border-radius: 0 5px 0 0; }
+        .corner-br { bottom: 10px; right: 10px; border-radius: 5px 0 0 0; }
+
+        .briefcase-interior {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 6px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease-in-out 1.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .briefcase.open .briefcase-interior {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .briefcase-interior h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .briefcase-interior p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .enter-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Ocultar el maletín cuando se entra al sitio */
+        .briefcase-container.hidden {
+            transform: translate(-50%, -50%) scale(0) rotateY(360deg);
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+        }
+
+        /* Mostrar navegación cuando se entra */
+        .navigation-visible {
+            pointer-events: all;
+        }
+
+        .navigation-hidden {
+            pointer-events: none;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <header class="navigation-hidden" id="navigation">
+        <nav class="Barra">
+            <ul>
+               <li><a href="#">Acerca de Mi</a></li>
+               <li><a href="#">Proyectos</a></li>
+               <li><a href="#">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="briefcase-container" id="briefcaseContainer" onclick="openBriefcase()">
+        <div class="briefcase" id="briefcase">
+            <div class="briefcase-bottom">
+                <div class="corners corner-bl"></div>
+                <div class="corners corner-br"></div>
+                <div class="lock"></div>
+                <div class="briefcase-interior">
+                    <h2>¡Bienvenido!</h2>
+                    <p>Tu portafolio profesional</p>
+                    <button class="enter-btn" onclick="enterSite(event)">Entrar al Sitio</button>
+                </div>
+            </div>
+            <div class="briefcase-top">
+                <div class="corners corner-tl"></div>
+                <div class="corners corner-tr"></div>
+                <div class="handle"></div>
+            </div>
+        </div>
+        <div class="click-hint" id="clickHint">🔓 Haz clic para abrir el maletín</div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <script>
+        let briefcaseOpened = false;
+
+        function openBriefcase() {
+            if (!briefcaseOpened) {
+                const briefcase = document.getElementById('briefcase');
+                const clickHint = document.getElementById('clickHint');
+                
+                briefcase.classList.add('open');
+                clickHint.style.opacity = '0';
+                briefcaseOpened = true;
+                
+                // Crear efecto de partículas
+                createParticles();
+                
+                // Cambiar el hint después de abrir
+                setTimeout(() => {
+                    clickHint.innerHTML = '✨ ¡Ahora haz clic en "Entrar al Sitio"!';
+                    clickHint.style.opacity = '1';
+                }, 2000);
+            }
+        }
+
+        function enterSite(event) {
+            event.stopPropagation();
+            const briefcaseContainer = document.getElementById('briefcaseContainer');
+            const navigation = document.getElementById('navigation');
+            
+            // Ocultar el maletín con animación
+            briefcaseContainer.classList.add('hidden');
+            
+            // Mostrar la navegación después de que se oculte el maletín
+            setTimeout(() => {
+                navigation.classList.remove('navigation-hidden');
+                navigation.classList.add('navigation-visible');
+            }, 1500);
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#FFD700', '#FFA500', '#FF6347', '#87CEEB', '#98FB98'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remover partícula después de la animación
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

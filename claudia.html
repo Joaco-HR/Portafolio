@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Comic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --violeta-oscuro: #6b46c1;
+            --violeta-medio: #8b5cf6;
+            --violeta-claro: #a78bfa;
+            --beige-oscuro: #d2b48c;
+            --beige-claro: #f5f5dc;
+            --blanco: #ffffff;
+            --negro-comic: #2d1b69;
+            --amarillo-comic: #ffd700;
+            --rojo-comic: #ff4757;
+            --azul-comic: #3742fa;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            line-height: 1.6;
+            color: var(--negro-comic);
+            background: var(--beige-claro);
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--violeta-claro) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, var(--beige-oscuro) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow-x: hidden;
+        }
+
+        /* Navegación Comic */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--violeta-oscuro);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 4px solid var(--negro-comic);
+            box-shadow: 0 4px 0 var(--amarillo-comic);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 15px;
+            border: 3px solid var(--blanco);
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(-2deg);
+        }
+
+        nav a:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        nav a:hover {
+            background: var(--amarillo-comic);
+            color: var(--negro-comic);
+            transform: rotate(0deg) scale(1.1);
+            border-color: var(--negro-comic);
+            box-shadow: 4px 4px 0 var(--rojo-comic);
+        }
+
+        /* Burbujas de texto */
+        .speech-bubble {
+            position: relative;
+            background: var(--blanco);
+            border: 4px solid var(--negro-comic);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .speech-bubble:before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-top-color: var(--negro-comic);
+        }
+
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 34px;
+            width: 0;
+            height: 0;
+            border: 16px solid transparent;
+            border-top-color: var(--blanco);
+        }
+
+        /* Secciones Comic */
+        section {
+            min-height: 100vh;
+            padding: 120px 2rem 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            font-family: 'Bangers', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--violeta-oscuro);
+            text-shadow: 
+                3px 3px 0 var(--amarillo-comic),
+                6px 6px 0 var(--negro-comic);
+            animation: bounce 2s infinite;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: var(--violeta-medio);
+            text-shadow: 
+                2px 2px 0 var(--beige-oscuro),
+                4px 4px 0 var(--negro-comic);
+            transform: rotate(-3deg);
+        }
+
+        /* Efectos de explosión */
+        .explosion {
+            position: absolute;
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            color: var(--rojo-comic);
+            text-shadow: 2px 2px 0 var(--amarillo-comic);
+            animation: explode 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes explode {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            50% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Sección Quien Soy Comic */
+        #quien-soy {
+            background: linear-gradient(45deg, var(--violeta-claro), var(--beige-claro));
+            position: relative;
+        }
+
+        .comic-character {
+            width: 250px;
+            height: 250px;
+            border: 6px solid var(--negro-comic);
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--violeta-medio), var(--beige-oscuro));
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            animation: wiggle 4s ease-in-out infinite;
+            box-shadow: 
+                0 0 0 8px var(--amarillo-comic),
+                0 0 0 12px var(--negro-comic);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+
+        .comic-character::before {
+            content: '💥';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 2rem;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Panel Comic */
+        .comic-panel {
+            background: var(--blanco);
+            border: 6px solid var(--negro-comic);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 8px 8px 0 var(--violeta-claro);
+            transform: rotate(1deg);
+        }
+
+        .comic-panel::before {
+            content: '★';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--amarillo-comic);
+            border: 3px solid var(--negro-comic);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Sección Proyectos Comic */
+        #proyectos {
+            background: var(--beige-claro);
+            position: relative;
+        }
+
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .proyecto-comic {
+            background: var(--blanco);
+            border: 5px solid var(--negro-comic);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            box-shadow: 6px 6px 0 var(--violeta-medio);
+        }
+
+        .proyecto-comic:nth-child(even) {
+            transform: rotate(2deg);
+            box-shadow: 6px 6px 0 var(--beige-oscuro);
+        }
+
+        .proyecto-comic:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 10px 10px 0 var(--rojo-comic);
+        }
+
+        .proyecto-comic::before {
+            content: attr(data-emoji);
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--amarillo-comic);
+            border: 4px solid var(--negro-comic);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .proyecto-comic h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--violeta-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 0 var(--beige-oscuro);
+        }
+
+        .comic-btn {
+            background: var(--rojo-comic);
+            color: var(--blanco);
+            border: 4px solid var(--negro-comic);
+            padding: 0.8rem 2rem;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            transform: rotate(-1deg);
+            box-shadow: 4px 4px 0 var(--negro-comic);
+        }
+
+        .comic-btn:hover {
+            background: var(--amarillo-comic);
+            color: var(--negro-comic);
+            transform: rotate(0deg) translateY(-2px);
+            box-shadow: 6px 6px 0 var(--negro-comic);
+        }
+
+        /* Sección Contacto Comic */
+        #contacto {
+            background: var(--violeta-oscuro);
+            color: var(--blanco);
+            position: relative;
+        }
+
+        #contacto::before {
+            content: 'POW! BOOM! ZAP!';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-family: 'Bangers', cursive;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .contacto-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contacto-comic {
+            background: var(--blanco);
+            color: var(--negro-comic);
+            border: 5px solid var(--negro-comic);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transform: rotate(1deg);
+            transition: all 0.3s ease;
+            box-shadow: 6px 6px 0 var(--amarillo-comic);
+        }
+
+        .contacto-comic:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .contacto-comic:hover {
+            transform: rotate(0deg) scale(1.1);
+            box-shadow: 8px 8px 0 var(--beige-oscuro);
+        }
+
+        .contacto-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(2px 2px 0 var(--violeta-medio));
+        }
+
+        .contacto-comic h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--violeta-oscuro);
+        }
+
+        /* Elementos decorativos */
+        .comic-dots {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: 
+                radial-gradient(circle, var(--rojo-comic) 20%, transparent 20%),
+                radial-gradient(circle, var(--amarillo-comic) 20%, transparent 20%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .dots-1 { top: 20%; left: 10%; animation: float 6s ease-in-out infinite; }
+        .dots-2 { top: 70%; right: 10%; animation: float 6s ease-in-out infinite reverse; }
+        .dots-3 { top: 40%; left: 80%; animation: float 8s ease-in-out infinite; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 100px 1rem 30px;
+            }
+
+            .comic-character {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+
+            .comic-panel {
+                padding: 2rem;
+            }
+
+            .proyectos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #contacto::before {
+                font-size: 4rem;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Elementos decorativos -->
+    <div class="comic-dots dots-1"></div>
+    <div class="comic-dots dots-2"></div>
+    <div class="comic-dots dots-3"></div>
+
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#quien-soy">¿Quién Soy?</a></li>
+            <li><a href="#proyectos">Mis Proyectos</a></li>
+            <li><a href="#contacto">¡Contáctame!</a></li>
+        </ul>
+    </nav>
+
+    <!-- Explosiones decorativas -->
+    <div class="explosion" style="top: 15%; left: 15%;">BOOM!</div>
+    <div class="explosion" style="top: 25%; right: 20%;">POW!</div>
+    <div class="explosion" style="bottom: 30%; left: 10%;">ZAP!</div>
+
+    <!-- Sección Quien Soy -->
+    <section id="quien-soy">
+        <div class="container">
+            <h1>¡Hola, soy [Tu Nombre]!</h1>
+            
+            <div class="comic-panel">
+                <div class="comic-character">🦸‍♂️</div>
+                
+                <div class="speech-bubble">
+                    <p style="font-size: 1.3rem; font-weight: 700; text-align: center;">
+                        ¡Soy un SUPER desarrollador con poderes increíbles para crear 
+                        experiencias web ASOMBROSAS! 💥
+                    </p>
+                </div>
+                
+                <div style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                    <p>🚀 Con mis habilidades en programación, transformo ideas en realidad digital.</p>
+                    <br>
+                    <p>⚡ Mi superpoder es crear sitios web que no solo se ven geniales, 
+                    sino que también funcionan de maravilla!</p>
+                    <br>
+                    <p>🎯 Siempre estoy listo para el próximo desafío y para aprender nuevas técnicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos">
+        <div class="container">
+            <h2>¡Mis Proyectos Épicos!</h2>
+            <div class="proyectos-grid">
+                <div class="proyecto-comic" data-emoji="🌟">
+                    <h3>Proyecto Estelar</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        ¡Una aplicación web que brilla más que las estrellas! 
+                        Con súper poderes de responsividad y efectos visuales 
+                        que harán que los usuarios digan "¡WOW!"
+                    </p>
+                    <a href="#" class="comic-btn">¡Ver Proyecto!</a>
+                </div>
+                
+                <div class="proyecto-comic" data-emoji="🚀">
+                    <h3>Cohete Digital</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        ¡Despega hacia el futuro con esta solución tecnológica! 
+                        Velocidad supersónica y algoritmos que vuelan más alto 
+                        que un superhéroe.
+                    </p>
+                    <a href="#" class="comic-btn">¡Despegar!</a>
+                </div>
+                
+                <div class="proyecto-comic" data-emoji="💡">
+                    <h3>Idea Brillante</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        ¡Como un rayo de genialidad! Este proyecto ilumina 
+                        el camino con creatividad pura y animaciones que 
+                        hipnotizan a cualquiera.
+                    </p>
+                    <a href="#" class="comic-btn">¡Brillar!</a>
+                </div>
+                
+                <div class="proyecto-comic" data-emoji="🔧">
+                    <h3>Herramienta Mágica</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        ¡Abracadabra! Una herramienta que hace magia con 
+                        la productividad. Automatiza procesos como si fuera 
+                        un hechizo súper poderoso.
+                    </p>
+                    <a href="#" class="comic-btn">¡Magia!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="contacto-container">
+                <h2 style="color: var(--blanco);">¡Únete a Mi Liga!</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">
+                    ¿Tienes una misión épica? ¡Llamemos al equipo de superhéroes! 💪
+                </p>
+                
+                <div class="contacto-grid">
+                    <div class="contacto-comic">
+                        <span class="contacto-icon">📧</span>
+                        <h3>Correo Súper</h3>
+                        <p style="font-weight: 700;">tu.email@ejemplo.com</p>
+                    </div>
+                    
+                    <div class="contacto-comic">
+                        <span class="contacto-icon">💼</span>
+                        <h3>LinkedIn Pro</h3>
+                        <p style="font-weight: 700;">linkedin.com/in/tu-perfil</p>
+                    </div>
+                    
+                    <div class="contacto-comic">
+                        <span class="contacto-icon">💻</span>
+                        <h3>GitHub Épico</h3>
+                        <p style="font-weight: 700;">github.com/tu-usuario</p>
+                    </div>
+                    
+                    <div class="contacto-comic">
+                        <span class="contacto-icon">📱</span>
+                        <h3>Bat-Teléfono</h3>
+                        <p style="font-weight: 700;">+54 (11) 1234-5678</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navegación suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Efectos de aparición comic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = entry.target.style.transform.replace('translateY(50px)', 'translateY(0)');
+                }
+            });
+        }, observerOptions);
+
+        // Preparar elementos para animación
+        document.querySelectorAll('.proyecto-comic').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform += ' translateY(50px)';
+            card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+
+        // Efectos de hover mejorados
+        document.querySelectorAll('.contacto-comic').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(0deg) scale(1.1)';
+                // Agregar sonido cómico (simulado)
+                console.log('¡KAPOW!');
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const rotation = Math.random() > 0.5 ? '1deg' : '-1deg';
+                this.style.transform = `rotate(${rotation}) scale(1)`;
+            });
+        });
+
+        // Explosiones aleatorias
+        setInterval(() => {
+            const explosions = ['BOOM!', 'POW!', 'ZAP!', 'KAPOW!', 'WHAM!'];
+            const colors = ['var(--rojo-comic)', 'var(--amarillo-comic)', 'var(--azul-comic)'];
+            
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.textContent = explosions[Math.floor(Math.random() * explosions.length)];
+            explosion.style.color = colors[Math.floor(Math.random() * colors.length)];
+            explosion.style.left = Math.random() * 100 + '%';
+            explosion.style.top = Math.random() * 100 + '%';
+            explosion.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            
+            document.body.appendChild(explosion);
+            
+            setTimeout(() => {
+                explosion.remove();
+            }, 3000);
+        }, 5000);
+
+        // Navegación activa
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'var(--amarillo-comic)';
+                    link.style.color = 'var(--negro-comic)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+No se ha podido establecer conexión con el servicio reCAPTCHA. Comprueba tu conexión a Internet y vuelve a cargar la página pa
