@@ -46,7 +46,7 @@ body {
 .Barra ul li a:hover {
   background-color: white;
   color: #583a9c;
-  border-color: #000;
+  border: 4px solid #000;
   transform: scale(1.1);
 }
 
@@ -88,7 +88,7 @@ body {
 
 .contenedor img {
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform 1s ease;
 }
 
 .contenedor ul li img:hover {
@@ -104,9 +104,10 @@ body {
 }
 
 
-.Contenido{
-  display: flex;
-  flex-direction: row;
+.Texto{
+  color: #ffffff;
+  display: block;
+  flex-direction: column;
   border-radius: 15px;
   position: relative;
   text-transform: uppercase;
@@ -114,28 +115,70 @@ body {
   padding: 5rem;
   flex-grow: 3;
   gap: 3rem;
-  background-color: #cbe7eb;
+  background-size: cover;
+  background-position: center;
 }
 
-.Contenido img{
-  border-radius: 15px;
-  border: 6px solid #000;
+.python{
+  background-image: url("Fondo\ Azul.png");
+}
+
+.html{
+  background-image: url("Fondo\ Rosa.png");
+}
+
+.scracht{
+  background-image: url("Fondo\ Naranja.png");
+}
+
+.qbasic{
+  background-image: url("Fondo\ Violeta.png");
+}
+
+.css{
+  background-image: url("Fondo\ Verde.png");
+}
+
+.sticker-1 {
+  position: absolute;
+  top: 6px;
+  right: 20px;
+  border-radius: 100px;
+  border: 6px solid #ffffff;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.2);
+  transform: rotate(10deg);
+}
+
+.sticker-2{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 30px;
+  box-shadow: 8px 8px 12px rgb(0, 0, 0);
+  transform: rotate(10deg);
 }
 
 .Texto h1{
+  color: black;
   font-size: 3rem;
   font-weight: 700;
   font-family: 'Bangers', cursive;
   margin-bottom: 2rem;
 }
 
+
 .Texto p{
   font-family: 'Baloo 2', cursive;
   font-size: 1.25rem;
   line-height: 1.4;
   border-radius: 15px;
+  color: rgb(0, 0, 0);
   position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  border: 6px solid #000000;
+  box-shadow: 15px 8px 12px rgba(209, 203, 203, 0.2);
 }
