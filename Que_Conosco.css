@@ -1,0 +1,141 @@
+body {
+  background-color: rgb(5, 223, 190);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  padding-top: 130px; 
+}
+
+.Barra {
+  width: 100%;
+  background-color: #6b46c1;
+  border-bottom: 4px solid #2d1b69;
+  box-shadow: 0 4px 0 #393939;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.Barra ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.Barra ul li a {
+  font-family: 'Bangers', cursive;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 15px;
+  border: 4px solid #000;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.8rem 1.5rem;
+  display: inline-block;
+  background-color: #583a9c;
+}
+
+.Barra ul li a:hover {
+  background-color: white;
+  color: #583a9c;
+  border-color: #000;
+  transform: scale(1.1);
+}
+
+.Barra ul li a.solo-imagen {
+  border: none;
+  background: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.Barra ul li a.solo-imagen img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.Barra ul li a.solo-imagen:hover img {
+  transform: scale(1.1);
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+}
+
+.contenedor ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor img {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.contenedor ul li img:hover {
+  transform: scale(1.1);
+}
+
+.contenedor_2{
+  display: flex;
+  width: 100%;
+  padding: 4rem;
+  gap: 6rem;
+  box-sizing: border-box;
+}
+
+
+.Contenido{
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5rem;
+  flex-grow: 3;
+  gap: 3rem;
+  background-color: #cbe7eb;
+}
+
+.Contenido img{
+  border-radius: 15px;
+  border: 6px solid #000;
+}
+
+.Texto h1{
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Bangers', cursive;
+  margin-bottom: 2rem;
+}
+
+.Texto p{
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  border-radius: 15px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem;
+}
