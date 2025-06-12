@@ -1,7 +1,9 @@
 body {
+  background-color: #FFF2BF;
   margin: 0;
   padding: 0;
   height: 100%;
+  padding-top: 130px; 
 }
 
 .Barra {
@@ -65,7 +67,6 @@ body {
 }
 
 .contenedor {
-  background-color: #FFF2BF;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -73,7 +74,6 @@ body {
   padding: 4rem;
   gap: 6rem;
   box-sizing: border-box;
-  margin-top: 80px;
 }
 
 .Texto {
@@ -95,22 +95,13 @@ body {
   flex-grow: 3;
 }
 
-.Texto h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  font-family: 'Bangers', cursive;
-  margin-bottom: 1rem;
-}
-
 .Texto p {
   font-size: 2rem;
   font-family: 'Baloo 2', cursive;
-  line-height: 1.4;
   border-radius: 15px;
   transition: all 0.3s ease;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 1px;
   padding: 0.8rem 1.5rem;
   background-color: rgb(66, 25, 90);
 }
