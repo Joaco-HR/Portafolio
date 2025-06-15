@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 180, 221);
+  background-color: #c8ffd0;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -78,97 +78,37 @@ body {
 .Barra ul li a.solo-imagen:hover img {
   transform: scale(1.1);
 }
-.contenedor {
-  background-color: #FFF2BF;
+
+.Titulo {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+.contenedor{
+  display: flex;
+  width: 100%;
   padding: 4rem;
-  gap: 6rem;
   box-sizing: border-box;
 }
 
-.Texto {
-  max-width: 800px;
-  margin: 1rem;
-  display: flex;
-  color: #ffffff;
-  flex-direction: column;
+.Contactos{
+    width: 50%;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #9975ec;
+}
+
+.Contactos ul{
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  border-radius: 15px;
-  border: 8px solid #000000;
-  transition: all 0.3s ease;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.8rem 1.5rem;
-  background: url("assets/Fondos/Fondo\ Bienvenida.png");
-  background-size: cover;    
-  background-repeat: no-repeat;
-  flex-grow: 3;
-}
-
-.Texto p {
-  color: #ffffff;
-  width: 75%;
-  font-size: 2rem;
-  font-family: 'Baloo 2', cursive;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  position: relative;
-  text-transform: uppercase;
-  padding: 0.8rem 1.5rem;
-  background-color: rgb(44, 6, 66);
-  border: 6px solid #000;
-}
-
-.sobremi {
-  background-color: rgb(255, 180, 221);
-  width: 100%;
-  padding: 4rem;
+  list-style: none;
   gap: 6rem;
-  box-sizing: border-box;
-}
-
-.sobremi h1{
-  font-size: 3.5rem;
-  font-weight: 700;
-  font-family: 'Bangers', cursive;
-  margin-bottom: 2rem;
-}
-.info{
-  flex-direction: column;
-  border-radius: 15px;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.8rem 1.5rem;
-  flex-grow: 3;
-  background-color: rgb(255, 209, 234);
-}
-
-.info h2{
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Bangers', cursive;
-}
-
-.info p{
-  font-family: 'Baloo 2', cursive;
-  line-height: 1.4;
-  border-radius: 15px;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 1rem;
-}
-
-hr {
-  height: 1px; /* más grueso */
-  border: none;
-  background-color: #ff6699; /* color personalizado */
+  margin: 0;
+  padding: 0;
 }
 
 footer{

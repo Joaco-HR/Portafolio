@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(200, 244, 255);
+  background-color: #c8f4ff;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -12,7 +12,7 @@ html{
 
 .Barra {
   width: 100%;
-  background-color: #6b46c1;
+  background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
   border-bottom: 4px solid #2d1b69;
   box-shadow: 0 4px 0 #393939;
   position: fixed;
@@ -51,19 +51,32 @@ html{
   background-color: white;
   color: #583a9c;
   border-color: #000;
+  box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
   transform: scale(1.1);
 }
 
 .Barra ul li a.solo-imagen {
   border: none;
   background: none;
+  box-shadow: none;
   padding: 0;
   display: inline-block;
 }
 
 .Barra ul li a.solo-imagen img {
   display: block;
+  box-shadow: none;
+  background: none;
   transition: transform 0.3s ease;
+}
+
+.Barra ul li a.solo-imagen img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.Barra ul li a.solo-imagen:hover img {
+  transform: scale(1.1);
 }
 
 .Barra ul li a.solo-imagen:hover img {
@@ -91,8 +104,8 @@ html{
 }
 
 .contenedor img {
-  display: flex;
-  transition: transform 1s ease;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .contenedor ul li img:hover {
@@ -193,4 +206,9 @@ html{
   background-color: rgb(255, 255, 255);
   border: 6px solid #000000;
   box-shadow: 15px 8px 12px rgba(209, 203, 203, 0.2);
+}
+
+footer{
+  font-family: 'Baloo 2', cursive;
+  text-align: center;
 }
