@@ -165,7 +165,7 @@ body {
 .Ventana {
   display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -188,6 +188,12 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.Ventana-Contenido img{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .close {
   color: #000000;
   float: right;
@@ -206,22 +212,16 @@ body {
   text-decoration: none;
 }
 
-.Ventana img{
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-}
-
 .Ventana-Info {
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .Ventana-Info h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   font-family: 'Bangers', cursive;
-  color: #6b46c1;
+  color: #2d0094;
 }
 
 .Ventana-Info p{
