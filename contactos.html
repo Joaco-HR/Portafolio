@@ -3,37 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacos</title>
+  <title>Contactos</title>
   <link rel="stylesheet" href="contactos.css">
-  <link rel="icon" href="assets/Portafolio.png" type="image/png">
+  <link rel="icon" href="assets/Logos/Icon.png" type="image/png" >
 </head>
-<header>
-  <nav class="Barra">
-    <ul>
-        <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
-        <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
-        <li><a href="Proyectos.html">Proyectos</a></li>
-        <li><a href="contactos.html">Contactos</a></li>
-    </ul>
-  </nav>
-</header>
 <body>
+  <header>
+    <nav class="Barra">
+      <ul>
+          <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
+          <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
+          <li><a href="Proyectos.html">Proyectos</a></li>
+          <li><a href="contactos.html">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="Titulo">
-    <img src="assets/Titulo/Si te Interesa.png" alt="" width="700" height=auto>
+    <img src="assets/Titulo/Si te Interesa.png" alt="" width="700">
   </div>
+
   <div class="contenedor">
     <div class="Contactos">
-        <h1>MIS REDES</h1>
+      <img src="assets/Titulo/Mis Redes.png" alt="Mis redes" width="400" height="auto">
+      <div class="Redes">
         <ul>
-        <li><a href="https://github.com/Joaco-HR"><img src="Logo Git Hub.png" alt="Git Hub" width="80" height="80"><span>GitHub</span></a></li>
-        <li><a href="https://www.instagram.com/joaquin_hr17/"><img src="Logo Instagram.png" alt="Instagram" width="80" height="80"><span>Instragram</span></a></li>
-        <li><a href="https://www.linkedin.com/in/joaquin-rodriguez-18345436b/"><img src="Logo Linkedin.png" alt="Linkedin" width="80" height="80"><span>Linkedin</span></a></li>
-        <li><a href=""></a></li>
-    </ul>
+          <li><a href="https://github.com/Joaco-HR"><img src="assets/Logos/Logo Git Hub.png" alt="GitHub" width="80"><span>GitHub</span></a></li>
+          <li><a href="https://www.instagram.com/joaquin_hr17/"><img src="assets/Logos/Logo Instagram.png" alt="Instagram" width="80"><span>Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/in/joaquin-rodriguez-18345436b/"><img src="assets/Logos/Logo Linkedin.png" alt="Linkedin" width="80"><span>LinkedIn</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="Contactos">
+      <form class="Formulario" onsubmit="enviarMensaje(event)">
+        <img src="assets/Titulo/Contactame.png" alt="" width="450" height="auto">
+        <div class="form-group">
+          <label for="email">Tu Email:</label>
+          <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="nombre">Tu Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+        </div>
+        
+        <div class="form-group">
+          <label for="asunto">Asunto:</label>
+          <input type="text" id="asunto" name="asunto" required placeholder="¿De qué quieres hablar?">
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Tu Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        
+        <button type="submit" class="Enviar">
+          Enviar Mensaje
+        </button>
+        
+        <div id="MensajeEstado" class="Mensaje-estado"></div>
+      </form>
     </div>
   </div>
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+  <script>
+    function enviarMensaje(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const nombre = document.getElementById('nombre').value;
+      const asunto = document.getElementById('asunto').value;
+      const mensaje = document.getElementById('mensaje').value;
+      const mensajeEstado = document.getElementById('MensajeEstado');
+
+      mensajeEstado.style.display = 'block';
+      mensajeEstado.className = 'Mensaje-estado';
+      mensajeEstado.innerHTML = '⏳ Enviando mensaje...';
+
+      setTimeout(() => {
+        // CORRECCIÓN AQUÍ: se agrega el "?" después del mail
+        const mailto = `mailto:jhrodriguez@alumno.huergo.edu.ar?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(
+          `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`
+        )}`;
+      
+        window.location.href = mailto;
+      
+        mensajeEstado.className = 'Mensaje-estado Mensaje-exito';
+        mensajeEstado.innerHTML = '✅ ¡Mensaje Enviado!';
+        document.querySelector('.Formulario').reset();
+      
+        setTimeout(() => {
+          mensajeEstado.style.display = 'none';
+        }, 5000);
+      }, 1500);
+    }
+  </script>
 </body>
-<footer>
-  <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
-</footer>
 </html>
