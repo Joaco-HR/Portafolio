@@ -1,0 +1,1 @@
+Este es mi portfolio, una página web donde cuento un poco sobre mí, presento mis habilidades y muestro algunos de los proyectos en los que he estado trabajando. Además, encontrarán distintas formas de contactarme. ¡Espero que les guste!
