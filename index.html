@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="assets/Logos/Icon.png" type="image/png">
 </head>
-<header>
+<body>
+  <header>
   <nav class="Barra">
     <ul>
         <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
         <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
         <li><a href="Proyectos.html">Proyectos</a></li>
         <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌕</a></li>
     </ul>
   </nav>
-</header>
-<body>
+  </header>
   <div class="contenedor">
     <a href="assets/Imagenes/image.png"><img src="assets/Imagenes/Fondo.png" alt="Fondo" class="imagen-fondo" width="500" height= auto></a>
     <section class="Texto">
@@ -46,8 +47,31 @@
       <p>Lo conocí en la primaria, en la clase de informática. Mi profesor nos introdujo a lo que era Scratch, y desde ahí me enamoré de la programación. Cuando me enteré de que podía estudiar para aprender mucho más, mi objetivo fue entrar en la especialidad de Sistemas en un colegio técnico.</p>
     </section>
   </div>
-</body>
-<footer>
+  <footer>
   <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
-</footer>
+  </footer>
+  <script>
+    // Variable para controlar el estado del modo sueño
+    let modoSuenoActivo = false;
+
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '☀️'; // Luna nueva cuando está activo
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌕'; // Luna creciente cuando está inactivo
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
+</body>
 </html>

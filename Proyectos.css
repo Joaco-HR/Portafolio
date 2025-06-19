@@ -5,6 +5,23 @@ body {
   height: 100%;
   padding-top: 130px;
   font-family: Arial, sans-serif;
+  transition: filter 0.3s ease;
+}
+
+body.modo-sueno {
+  filter: grayscale(100%);
+  background-color: #e5fae8;
+}
+
+/* SOLUCIÓN: Remover el filtro de las ventanas modales en modo sueño para evitar conflictos */
+body.modo-sueno .Ventana {
+  filter: none; /* Cambio: era grayscale(100%), ahora es none */
+}
+
+body.modo-sueno .Ventana-Contenido {
+  background-color: #e5fae8;
+  filter: grayscale(100%);
+  top: 63% !important;
 }
 
 .Barra {
@@ -69,6 +86,29 @@ body {
 
 .Barra ul li a.solo-imagen:hover img {
   transform: scale(1.1);
+}
+
+.modo-sueno-btn {
+  background-color: #583a9c !important;
+  padding: 0.8rem !important;
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 2.5rem !important;
+  position: relative !important;
+}
+
+.modo-sueno-btn:hover {
+  background-color: white !important;
+  transform: scale(1.1) !important;
+}
+
+.modo-sueno-btn.activo {
+  background-color: #2d1b69 !important;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5) !important;
 }
 
 .Titulo {
@@ -177,15 +217,19 @@ body {
 .Ventana-Contenido {
   background: url("assets/Fondos/Fondo\ Blanco.png");
   background-size: cover;    
-  background-repeat: no-repeat;;
-  margin: 2% auto;
+  background-repeat: no-repeat;
   padding: 2rem;
   border: 6px solid #000000;
   border-radius: 20px;
   width: 80%;
-  max-height: 90vh; 
-  position: relative;
+  max-width: 900px;
+  max-height: 85vh; 
+  position: absolute;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
 }
 
 .Ventana-Contenido img{
@@ -204,6 +248,7 @@ body {
   top: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 1001; /* Asegurar que esté por encima de todo */
 }
 
 .close:hover {
@@ -267,7 +312,41 @@ footer{
   text-align: center;
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1001;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .Ventana-Contenido {
+    width: 95%;
+    max-height: 85vh;
+    padding: 1rem;
+  }
+  
+  .close {
+    font-size: 30px;
+    right: 15px;
+    top: 10px;
+  }
 }

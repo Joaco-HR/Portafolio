@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="Que_Conozco.css">
   <link rel="icon" href="assets/Logos/Icon.png" type="image/png">
 </head>
-<header>
+<body>
+  <header>
   <nav class="Barra">
     <ul>
         <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
         <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
         <li><a href="Proyectos.html">Proyectos</a></li>
         <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌕</a></li>
     </ul>
   </nav>
 </header>
-<body>
   <div class="contenedor">
     <img src="assets/Titulo/Titulo.png" alt="" width="800" height= auto>
     <ul>
@@ -28,15 +29,15 @@
       <li><a href="#Arduino y C++"><img src="assets/Logos/Logo Arduino.png" alt="Arduino" width="150" height="150"></a></li>
     </ul>
   </div>
-<div class="contenedor_2" id="Bloques">
+  <div class="contenedor_2" id="Bloques">
     <div class="Texto scracht">
         <div class="sticker-1"><img src="assets/Imagenes/Gato Scratch.png" width="100" height="100"></div>
         <img src="assets/Titulo/Scracht.png" alt="Titulo" width="600" height= auto>
         <p>Aprendí programación con bloques en la primaria utilizando el programa Scratch. Durante mi tiempo usando Scratch, aprendí a diseñar tanto fondos como personajes, a utilizar correctamente los bloques de movimiento, apariencia, sonido, eventos y controles, y luego, en menor medida, los sensores, operadores y variables. Logré desarrollar diferentes programas y juegos que, desgraciadamente, perdí.</p>
     </div>
-</div>
+  </div>
 
-<div class="contenedor_2" id="Python">
+  <div class="contenedor_2" id="Python">
     <div class="Texto python">
       <img src="assets/Titulo/Python.png" alt="Titulo" width="300" height= auto>
       <p>Aprendí a programar en Python en 2.º año del secundario hasta ahora. Lo primero que aprendí fue la sintaxis básica, como la definición y manejo de variables. Luego, el uso del <strong>print</strong> y los <strong>strings</strong> (diseño de mensajes). Después, aprendí a usar las funciones de decisión como <strong>if</strong> y los bucles <strong>for</strong> y <strong>while</strong>. Más adelante, aprendí la creación y manejo de listas, diccionarios y matrices. También aprendí a crear y codificar funciones y módulos (con <strong>def</strong>), y finalmente, la programación orientada a objetos (POO), definiendo clases y llamándolas desde otros programas. Además, aprendí a utilizar librerías externas.</p>
@@ -45,24 +46,24 @@
     </div>
   </div>
 
-<div class="contenedor_2" id="HTML y CSS">
-    <div class="Texto html">
-      <img src="assets/Titulo/HTML-Y-CSS.png" alt="Titulo"  width= "400" height= auto>
-      <p>Aprendí a programar con HTML y CSS en 2.º año del secundario hasta ahora.</p>
-      <p>De HTML he aprendido a crear títulos, subtítulos, párrafos, cargar imágenes y ajustar sus tamaños. También aprendí a crear listas, vincular elementos de la misma página o de otras páginas HTML, así como a crear botones, implementar <strong>div</strong> y <strong>nav</strong>, y separar contenidos en diferentes secciones.</p>
-      <p>De CSS he aprendido a diseñar páginas HTML aplicando colores a fondos y textos, usando márgenes, bordes y rellenos para estructurar los elementos. Manejo <strong>flexbox</strong> para alinear contenido y uso propiedades como <strong>position: fixed</strong> y <strong>z-index</strong> para organizar elementos en capas. También sé aplicar sombras, transiciones y efectos al pasar el cursor para mejorar la interacción. He trabajado con distintas tipografías y estilos de texto, y sé dividir el diseño en secciones con clases específicas, dándoles un estilo propio y coherente.</p>
-      <p>En resumen, mis conocimientos de HTML y CSS me han permitido crear páginas visualmente agradables, interactivas y bien estructuradas, aplicando buenas prácticas de diseño y organización del código.</p>
-    </div>
-</div>
+  <div class="contenedor_2" id="HTML y CSS">
+      <div class="Texto html">
+        <img src="assets/Titulo/HTML-Y-CSS.png" alt="Titulo"  width= "400" height= auto>
+        <p>Aprendí a programar con HTML y CSS en 2.º año del secundario hasta ahora.</p>
+        <p>De HTML he aprendido a crear títulos, subtítulos, párrafos, cargar imágenes y ajustar sus tamaños. También aprendí a crear listas, vincular elementos de la misma página o de otras páginas HTML, así como a crear botones, implementar <strong>div</strong> y <strong>nav</strong>, y separar contenidos en diferentes secciones.</p>
+        <p>De CSS he aprendido a diseñar páginas HTML aplicando colores a fondos y textos, usando márgenes, bordes y rellenos para estructurar los elementos. Manejo <strong>flexbox</strong> para alinear contenido y uso propiedades como <strong>position: fixed</strong> y <strong>z-index</strong> para organizar elementos en capas. También sé aplicar sombras, transiciones y efectos al pasar el cursor para mejorar la interacción. He trabajado con distintas tipografías y estilos de texto, y sé dividir el diseño en secciones con clases específicas, dándoles un estilo propio y coherente.</p>
+        <p>En resumen, mis conocimientos de HTML y CSS me han permitido crear páginas visualmente agradables, interactivas y bien estructuradas, aplicando buenas prácticas de diseño y organización del código.</p>
+      </div>
+  </div>
 
-<div class="contenedor_2" id="Qbasic">
-    <div class="Texto qbasic">
-      <img src="assets/Titulo/Qbasic.png" alt="Titulo"  width="300" height= auto>
-      <p>Aprendí a programar en QBasic en 3.º año. Durante ese tiempo lo usé para traducir ejercicios hechos en Python, aprendiendo así a usar este lenguaje más antiguo. Aprendí a definir variables, imprimir elementos, cambiarles el color y la posición, usar estructuras <strong>if</strong> y <strong>case</strong>, bucles <strong>for</strong> y <strong>do</strong>. Más adelante, trabajé con listas y matrices, y lo último que vi fue la definición de funciones sencillas.</p>
-    </div>
-</div>
+  <div class="contenedor_2" id="Qbasic">
+      <div class="Texto qbasic">
+        <img src="assets/Titulo/Qbasic.png" alt="Titulo"  width="300" height= auto>
+        <p>Aprendí a programar en QBasic en 3.º año. Durante ese tiempo lo usé para traducir ejercicios hechos en Python, aprendiendo así a usar este lenguaje más antiguo. Aprendí a definir variables, imprimir elementos, cambiarles el color y la posición, usar estructuras <strong>if</strong> y <strong>case</strong>, bucles <strong>for</strong> y <strong>do</strong>. Más adelante, trabajé con listas y matrices, y lo último que vi fue la definición de funciones sencillas.</p>
+      </div>
+  </div>
 
-<div class="contenedor_2" id="Arduino y C++">
+  <div class="contenedor_2" id="Arduino y C++">
     <div class="Texto css">
       <img src="assets/Titulo/Arduino-y-C.png" alt="Titulo"  width="500" height= auto>  
       <p>
@@ -74,9 +75,32 @@
         Debido a que el lenguaje de Arduino está inspirado en C++, tuve un período donde aprendí a realizar algunas cosas aparte de lo mencionado para ayudar a mi hermano (que estudia electrónica) con algunos de sus proyectos. Allí aprendí a trabajar con una pantalla TFT LCD, aprendiendo en el proceso algunos elementos más avanzados de C++ y algunas librerías relacionadas con dicha pantalla.
       </p>
     </div>
-</div>
+  </div>
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+  <script>
+    // Variable para controlar el estado del modo sueño
+    let modoSuenoActivo = false;
+
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '☀️'; // Luna nueva cuando está activo
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌕'; // Luna creciente cuando está inactivo
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
 </body>
-<footer>
-  <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
-</footer>
 </html>

@@ -7,49 +7,18 @@
   <link rel="stylesheet" href="Proyectos.css">
   <link rel="icon" href="assets/Logos/Icon.png" type="image/png">
 </head>
-<script>
-  function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
-  }
-  function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-  }
-  // Close modal when clicking outside of it
-  window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  }
-  // Close modal with Escape key
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (modal.style.display === 'block') {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      });
-    }
-  });
-</script>
-<header>
+<body>
+  <header>
   <nav class="Barra">
     <ul>
         <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
         <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
         <li><a href="Proyectos.html">Proyectos</a></li>
         <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌕</a></li>
     </ul>
   </nav>
-</header>
-<body>
+  </header>
   <div class="Titulo">
     <img src="assets/Titulo/Proyectos.png" alt="" width="700" height="auto">
     <h2>Estos son algunos proyectos que he desarrollado durante mi tiempo en la escuela</h2>
@@ -82,7 +51,7 @@
     <div class="Ventana-Contenido">
       <span class="close" onclick="closeModal('SudokuModal')">&times;</span>
       <img src="assets/Titulo/Sudoku.png" alt="Sudoku" width="200" height=auto>
-      <div class="Ventana-Info">
+      <div class="Ventana-Info">  
         <h3>Descripción:</h3>
         <p>Este es un juego de Sudoku que desarrollé en 2° año junto con Facundo Benítez. El j  uego está hecho 100% en Python y se juega desde la consola de Python.</p>
         <h3>Distribución de niveles:</h3>
@@ -127,8 +96,58 @@
       </div>
     </div>
   </div>
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+  <script>
+    let modoSuenoActivo = false;
+
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '☀️'; 
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌕';
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+      document.body.style.overflow = 'hidden'; 
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+      document.body.style.overflow = 'auto'; 
+    }
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    });
+</script>
 </body>
-<footer>
-  <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
-</footer>
 </html>

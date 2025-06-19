@@ -1,4 +1,3 @@
-
 body {
   background-color: #c8ffd0;
   margin: 0;
@@ -6,6 +5,12 @@ body {
   height: 100%;
   padding-top: 130px;
   font-family: sans-serif;
+  transition: filter 0.3s ease;
+}
+
+body.modo-sueno {
+  filter: grayscale(100%);
+  background-color: #e5fae8;
 }
 
 .Barra {
@@ -81,6 +86,29 @@ body {
   transform: scale(1.1);
 }
 
+.modo-sueno-btn {
+  background-color: #583a9c !important;
+  padding: 0.8rem !important;
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 2.5rem !important;
+  position: relative !important;
+}
+
+.modo-sueno-btn:hover {
+  background-color: white !important;
+  transform: scale(1.1) !important;
+}
+
+.modo-sueno-btn.activo {
+  background-color: #2d1b69 !important;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5) !important;
+}
+
 .Titulo {
   display: flex;
   flex-direction: column;
@@ -104,7 +132,7 @@ body {
   padding: 2rem;
   border-radius: 15px;
   border: 8px solid #000;
-  background: url("assets/Fondos/1-Photoroom.png") no-repeat center/cover;
+  background: url("assets/Fondos/Fondo\ Contactos.png") no-repeat center/cover;
   box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
@@ -292,4 +320,23 @@ footer {
   font-family: 'Baloo 2', cursive;
   text-align: center;
   padding: 2rem;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1001;
 }
