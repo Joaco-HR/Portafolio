@@ -327,14 +327,45 @@ body.modo-sueno footer {
   color: white;
 }
 
+/* FOOTER SIMPLE */
 footer {
-  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg, #6b46c1, #9975ec);
+  color: white;
+  padding: 1.5rem 0;
   text-align: center;
-  padding: 2rem;
+  font-family: 'Baloo 2', cursive;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.copyright {
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: #c8ffd0;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
 }
 
 .tooltip {
-  position: relative;
+  position: relative;  
 }
 
 .tooltip:hover::after {
