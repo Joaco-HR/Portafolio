@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos</title>
+  <link rel="stylesheet" href="contactos.css">
+  <link rel="icon" href="assets/Logos/Icon.png" type="image/png">
+</head>
+<body>
+  <header>
+    <nav class="Barra">
+      <ul>
+          <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
+          <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
+          <li><a href="Proyectos.html">Proyectos</a></li>
+          <li><a href="contactos.html">Contactos</a></li>
+          <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌕</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="Titulo">
+    <img src="assets/Titulo/Si te Interesa.png" alt="" width="700">
+  </div>
+
+  <div class="contenedor">
+    <div class="Contactos">
+      <img src="assets/Titulo/Mis Redes.png" alt="Mis redes" width="400" height="auto">
+      <div class="Redes">
+        <ul>
+          <li><a href="https://github.com/Joaco-HR"><img src="assets/Logos/Logo Git Hub.png" alt="GitHub" width="80"><span>GitHub</span></a></li>
+          <li><a href="https://www.instagram.com/joaquin_hr17/"><img src="assets/Logos/Logo Instagram.png" alt="Instagram" width="80"><span>Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/in/joaquin-rodriguez-18345436b/"><img src="assets/Logos/Logo Linkedin.png" alt="Linkedin" width="80"><span>LinkedIn</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="Descargar-CV">
+        <a href="assets/Cvs - Joaquin Hernan Rodriguez.pdf" class="Boton-CV"> <span>Ver Mi Cvs</span></a>
+      </div>
+    </div>
+
+    <div class="Contactos">
+      <form class="Formulario" action="https://formspree.io/f/mjkroago" method="POST">
+        <img src="assets/Titulo/Contactame.png" alt="" width="450" height="auto">
+        
+        <div class="form-group">
+          <label for="email">Tu Email:</label>
+          <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Tu Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+        </div>
+        
+        <div class="form-group">
+          <label for="asunto">Asunto:</label>
+          <input type="text" id="asunto" name="asunto" required placeholder="¿De qué quieres hablar?">
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Tu Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        
+        <button type="submit" class="Enviar">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+  <script>
+    // Variable para controlar el estado del modo sueño
+    let modoSuenoActivo = false;
+
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '☀️'; // Luna nueva cuando está activo
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌕'; // Luna creciente cuando está inactivo
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
+</body>
+</html>

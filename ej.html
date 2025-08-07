@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos</title>
+  <link rel="icon" href="assets/Logos/Icon.png" type="image/png" >
+  <style>
+    body {
+      background-color: #c8ffd0;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      min-height: 100vh;
+      padding-top: 130px;
+      font-family: sans-serif;
+      transition: filter 0.3s ease;
+    }
+
+    body.modo-sueno {
+      filter: grayscale(100%);
+      background-color: #e5fae8;
+    }
+
+    .Barra {
+      width: 100%;
+      background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
+      border-bottom: 4px solid #2d1b69;
+      box-shadow: 0 4px 0 #393939;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .Barra ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      gap: 4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Barra ul li a {
+      font-family: 'Bangers', cursive;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 15px;
+      border: 4px solid #000;
+      transition: all 0.3s ease;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.8rem 1.5rem;
+      display: inline-block;
+      background-color: #583a9c;
+    }
+
+    .Barra ul li a:hover {
+      background-color: white;
+      color: #583a9c;
+      border-color: #000;
+      box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+    }
+
+    .Barra ul li a.solo-imagen {
+      border: none;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      display: inline-block;
+    }
+
+    .Barra ul li a.solo-imagen img {
+      display: block;
+      box-shadow: none;
+      background: none;
+      transition: transform 0.3s ease;
+    }
+
+    .Barra ul li a.solo-imagen:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Estilos para el botón de modo sueño */
+    .modo-sueno-btn {
+      background-color: #583a9c !important;
+      padding: 0.8rem !important;
+      border-radius: 50% !important;
+      width: 50px !important;
+      height: 50px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.5rem !important;
+      position: relative !important;
+    }
+
+    .modo-sueno-btn:hover {
+      background-color: white !important;
+      transform: scale(1.1) !important;
+    }
+
+    .modo-sueno-btn.activo {
+      background-color: #2d1b69 !important;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5) !important;
+    }
+
+    .Titulo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+
+    .contenedor {
+      display: flex;
+      width: 100%;
+      justify-content: start;
+      padding: 4rem;
+      gap: 6rem;
+      box-sizing: border-box;
+    }
+
+    .Contactos {
+      padding: 2rem;
+      border-radius: 15px;
+      border: 8px solid #000;
+      background: url("assets/Fondos/1-Photoroom.png") no-repeat center/cover;
+      box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+      height: auto;
+      width: 600px;
+    }
+
+    .Contactos:hover {
+      transform: scale(1.05);
+    }
+
+    .Contactos img {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .Redes {
+      list-style: none;
+      padding: 0;
+    }
+
+    .Redes li {
+      margin-bottom: 4rem;
+    }
+
+    .Redes a {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 0.5rem;
+      text-decoration: none;
+      color: #ffffff;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      font-family: 'Baloo 2', cursive;
+      font-size: 2rem;
+      width: 400px;
+    }
+
+    .Redes a:hover {
+      transform: translateX(10px);
+    }
+
+    .Redes img {
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .Redes a:hover img {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .Descargar-CV {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .Boton-CV {
+      font-family: 'Bangers', cursive;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 15px;
+      border: 4px solid #000;
+      transition: all 0.3s ease;
+      align-self: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.8rem 1.5rem;
+      display: inline-block;
+      background-color: #3a459c;
+    }
+
+    .Boton-CV:hover {
+      background-color: #ffffff;
+      color: #3a4c9c;
+      transform: translateY(-6px);
+      box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .Formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Bangers', cursive;
+      color: rgb(255, 255, 255);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .Enviar {
+      font-family: 'Bangers', cursive;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 15px;
+      border: 4px solid #000;
+      transition: all 0.3s ease;
+      align-self: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.8rem 1.5rem;
+      display: inline-block;
+      background-color: #3a459c;
+    }
+
+    .Enviar:hover {
+      background-color: #ffffff;
+      color: #3a4c9c;
+      transform: translateY(-6px);
+      box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .Mensaje-estado {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+      background-color: white;
+    }
+
+    .Mensaje-exito {
+      background: linear-gradient(45deg, #00d4aa, #01a3a4);
+      color: white;
+    }
+
+    .Mensaje-error {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+    }
+
+    footer {
+      font-family: 'Baloo 2', cursive;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Tooltip para el botón */
+    .tooltip {
+      position: relative;
+    }
+
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="Barra">
+      <ul>
+          <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
+          <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
+          <li><a href="Proyectos.html">Proyectos</a></li>
+          <li><a href="contactos.html">Contactos</a></li>
+          <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌙</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="Titulo">
+    <img src="assets/Titulo/Si te Interesa.png" alt="" width="700">
+  </div>
+
+  <div class="contenedor">
+    <div class="Contactos">
+      <img src="assets/Titulo/Mis Redes.png" alt="Mis redes" width="400" height="auto">
+      <div class="Redes">
+        <ul>
+          <li><a href="https://github.com/Joaco-HR"><img src="assets/Logos/Logo Git Hub.png" alt="GitHub" width="80"><span>GitHub</span></a></li>
+          <li><a href="https://www.instagram.com/joaquin_hr17/"><img src="assets/Logos/Logo Instagram.png" alt="Instagram" width="80"><span>Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/in/joaquin-rodriguez-18345436b/"><img src="assets/Logos/Logo Linkedin.png" alt="Linkedin" width="80"><span>LinkedIn</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="Descargar-CV">
+        <a href="assets/Cvs - Joaquin Hernan Rodriguez.pdf" class="Boton-CV"> <span>Ver Mi Cvs</span></a>
+      </div>
+    </div>
+    <div class="Contactos">
+      <form class="Formulario" onsubmit="enviarMensaje(event)">
+        <img src="assets/Titulo/Contactame.png" alt="" width="450" height="auto">
+        <div class="form-group">
+          <label for="email">Tu Email:</label>
+          <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="nombre">Tu Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+        </div>
+        
+        <div class="form-group">
+          <label for="asunto">Asunto:</label>
+          <input type="text" id="asunto" name="asunto" required placeholder="¿De qué quieres hablar?">
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Tu Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        
+        <button type="submit" class="Enviar">
+          Enviar Mensaje
+        </button>
+        
+        <div id="MensajeEstado" class="Mensaje-estado"></div>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+  
+  <script>
+    // Variable para controlar el estado del modo sueño
+    let modoSuenoActivo = false;
+
+    // Función para alternar el modo sueño
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '🌑'; // Luna nueva cuando está activo
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌙'; // Luna creciente cuando está inactivo
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="assets/Logos/Icon.png" type="image/png">
+</head>
+<body>
+  <header>
+  <nav class="Barra">
+    <ul>
+        <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio.png" alt="Logo" width="120" height="120"></a></li>
+        <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
+        <li><a href="Proyectos.html">Proyectos</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">🌕</a></li>
+    </ul>
+  </nav>
+  </header>
+  
+  <div class="contenedor">
+    <a href="#"><img src="assets/Imagenes/Fondo.png" alt="Fondo" class="imagen-fondo" width="500" height="auto"></a>
+    <section class="Texto">
+      <img src="assets/Titulo/Bienvenidos.png" alt="" width="600" height="auto">
+      <p>Me llamo Joaquín Hernan Rodríguez, soy programador y convierto mi imaginación en realidad.</p>
+    </section>
+  </div>
+
+  <div class="sobremi">
+    <div class="sobremi-titulo">
+      <img src="assets/Titulo/Acerca de Mi.png" alt="Acerca de mí" width="370" height="auto">
+    </div>
+    
+    <div class="info-grid">
+      <div class="info-card">
+        <h2 class="icon-specialty">Especialidad</h2>
+        <p>Mi especialidad es el desarrollo de videojuegos, sistemas y páginas web. Me apasiona crear experiencias interactivas que combinen creatividad y tecnología, transformando ideas innovadoras en soluciones digitales funcionales y atractivas.</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="icon-education">Educación</h2>
+        <p>Estudio en el Instituto Industrial Luis A. Huergo, en la especialidad de Computadoras. Durante mi tiempo en la escuela he dominado múltiples lenguajes y enfoques: programación con bloques, Python, QBasic, HTML, CSS, Arduino (C++) y C++. Cada tecnología me ha aportado una perspectiva única para resolver problemas.</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="icon-passion">¿Qué me atrajo de programar?</h2>
+        <p>Desde pequeño me fascinó la programación. Siempre he sido una persona muy creativa y curiosa. Descubrir que existía la posibilidad de materializar mis ideas y darles vida a través del código simplemente me encantó y me atrapó para siempre.</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="icon-discovery">¿Cómo conocí la programación?</h2>
+        <p>Mi primer encuentro fue en primaria, en la clase de informática. Mi profesor nos introdujo al mundo de Scratch, y desde ese momento me enamoré perdidamente de la programación. Cuando supe que podía estudiar para profundizar mis conocimientos, mi objetivo fue claro: estudiar Sistemas en un colegio técnico.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Joaquin Hernan Rodriguez - Portafolio 2025°</p>
+  </footer>
+
+  <script>
+    let modoSuenoActivo = false;
+
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      
+      modoSuenoActivo = !modoSuenoActivo;
+      
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        btn.innerHTML = '☀️';
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        btn.innerHTML = '🌕';
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
+</body>
+</html>
