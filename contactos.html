@@ -11,7 +11,7 @@
   <header>
     <nav class="Barra">
       <ul>
-          <li><a href="index.html" class="solo-imagen"><img src="assets/Logos/Portafolio(contactos).png" alt="Logo" width="120" height="120"></a></li>
+          <li><a href="index.html" class="solo-imagen tooltip" data-tooltip="Inicio"><img src="assets/Logos/Portafolio(contactos).png" alt="Logo" width="120" height="120"></a></li>
           <li><a href="Que_Conozco.html">¿Qué conozco?</a></li>
           <li><a href="Proyectos.html">Proyectos</a></li>
           <li><a href="contactos.html">Contactos</a></li>
@@ -67,14 +67,17 @@
       </form>
     </div>
   </div>
-  <footer>
-    <div class="footer-content">
-      <p class="copyright">© 2025 Joaquín Hernán Rodríguez</p>
-      <p class="tagline">Desarrollador Frontend - Portafolio Personal</p>
+  <footer class="Footer">
+  <div class="footer-content">
+    <div class="footer-texto">
+      <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
     </div>
-  </footer>
+    <div class="boton-subir">
+      <a href="#"><img src="assets/Logos/Subir(contactos).png" alt="Botón Subir" width="120" height="auto"></a>
+    </div>
+  </div>
+</footer>
   <script>
-    // Variable para controlar el estado del modo sueño
     let modoSuenoActivo = false;
 
     function toggleModoSueno() {

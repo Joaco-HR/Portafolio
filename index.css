@@ -110,7 +110,7 @@ html{
 }
 
 .contenedor {
-  background-color: #FFF2BF;
+  background-color: #fff2bf;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -135,10 +135,9 @@ html{
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 0.8rem 1.5rem;
-  background-image: url(assets/Fondos/Fondo\ Bienvenida.png);
-  background-size: cover;    
+  background-image: url(assets/Fondos/Fondo\ Bienvenida.jpeg);
+  background-size: cover;
   background-repeat: no-repeat;
-  flex-grow: 3;
 }
 
 .Texto p {
@@ -212,24 +211,58 @@ html{
 }
 
 .info-card:nth-child(1) {
-  background: linear-gradient(135deg, #fff0f5, #ffe4e6);
+  background: linear-gradient(135deg, #ff9dbe, #fecccf);
 }
 
 .info-card:nth-child(2) {
-  background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+  background: linear-gradient(135deg, #a9d3f7, #e6f3ff);
 }
 
 .info-card:nth-child(3) {
-  background: linear-gradient(135deg, #fff5f0, #ffe6e6);
+  background: linear-gradient(135deg, #f9c2a6, #ffe6e6);
 }
 
 .info-card:nth-child(4) {
-  background: linear-gradient(135deg, #f0fff0, #e6ffe6);
+  background: linear-gradient(135deg, #bffdbf, #e6ffe6);
 }
 
-footer{ 
+.Footer {
+  width: 100%;
+  background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
+  border-top: 4px solid #2d1b69;
+  box-shadow: 0 -4px 0 #393939;
+  z-index: 1000;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 8rem;
+  bottom: 0;
+  position: relative;
+}
+
+.footer-texto {
   font-family: 'Baloo 2', cursive;
-  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.boton-subir {
+  position: absolute;
+  right: 20px;
+}
+
+.boton-subir img {
+  transition: transform 0.3s ease;
+}
+
+.boton-subir img:hover {
+  transform: scale(1.1);
 }
 
 .tooltip {
