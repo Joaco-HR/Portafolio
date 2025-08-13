@@ -3,9 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  padding-top: 130px;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 
@@ -24,7 +22,7 @@ body.modo-sueno footer {
   filter: grayscale(100%);
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -41,16 +39,25 @@ body.modo-sueno .Ventana-Contenido {
   position: fixed;
   top: 0;
   z-index: 1000;
+  height: 130px; 
+  display: flex;
+  align-items: center; 
 }
 
 .Barra ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center; 
   list-style: none;
   gap: 6rem;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+.Barra ul li {
+  display: flex;
+  align-items: center;
 }
 
 .Barra ul li a {
@@ -62,12 +69,13 @@ body.modo-sueno .Ventana-Contenido {
   border-radius: 15px;
   border: 4px solid #000;
   transition: all 0.3s ease;
-  position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 0.8rem 1.5rem;
-  display: inline-block;
   background-color: #583a9c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Barra ul li a:hover {
@@ -75,25 +83,6 @@ body.modo-sueno .Ventana-Contenido {
   color: #583a9c;
   border-color: #000;
   box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-}
-
-.Barra ul li a.solo-imagen {
-  border: none;
-  background: none;
-  box-shadow: none;
-  padding: 0;
-  display: inline-block;
-}
-
-.Barra ul li a.solo-imagen img {
-  display: block;
-  box-shadow: none;
-  background: none;
-  transition: transform 0.3s ease;
-}
-
-.Barra ul li a.solo-imagen:hover img {
   transform: scale(1.1);
 }
 
@@ -121,6 +110,7 @@ body.modo-sueno .Ventana-Contenido {
 }
 
 .Titulo {
+  margin-top: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -202,6 +192,7 @@ body.modo-sueno .Ventana-Contenido {
   padding: 0.8rem 1.5rem;
   display: inline-block;
   background-color: #3a459c;
+  cursor: pointer;
 }
 
 .Mas-Informacion:hover {
