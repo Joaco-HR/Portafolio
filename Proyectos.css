@@ -309,6 +309,7 @@ body.modo-sueno .Ventana-Contenido {
 }
 
 .Footer {
+  margin-top: 40px;
   width: 100%;
   background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
   border-top: 4px solid #2d1b69;
